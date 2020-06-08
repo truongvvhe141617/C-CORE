@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.c
+ * Author: ADMIN
+ *
+ * Created on May 28, 2020, 12:53 AM
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void input(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Enter integer:");
+        scanf("%d", &a[i]);
+    }
+}
+
+void display(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+}
+
+int Sum(int a[], int n) {
+    int Sum = 0;
+    for (int i = 0; i < n; i++) {
+        Sum += a[i];
+    }
+    return Sum;
+}
+
+int main(int argc, char** argv) {
+    int a[100], n;
+    printf("Number of elements:");
+    scanf("%d", &n);
+    input(a, n);
+    printf("Sum = %d ", Sum(a, n));
+  
+    return (EXIT_SUCCESS);
+}
+
