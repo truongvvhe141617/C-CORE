@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.c
+ * Author: ADMIN
+ *
+ * Created on May 20, 2020, 6:29 PM
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * 
+ */
+void input(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("a[%d] = ", i);
+        scanf("%d", &a[i]);
+    }
+}
+
+void display(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%5d", a[i]);
+    }
+
+}
+
+void inscrease(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = i + i; j < n; j++) {
+            if (a[i] > a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+
+    }
+    display(n, a);
+}
+
+void discrease(int a[], int n) {    //a[0] = 1 a[1] = 4 , a[2] = 3 a[5] = 6
+    for (int i = 0; i < n; i++) {
+        for (int j = i + i; j < n; j++) {
+            if (a[i] < a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+
+    }
+    display(n, a);
+}
+
+int main(int argc, char** argv) {
+    int a[100], n;
+    printf("Enter n;");
+    scanf("%d", &n);
+    input(a, n);
+    inscrease(a, n);
+    discrease(a, n);
+    return (EXIT_SUCCESS);
+}
+
