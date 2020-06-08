@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int checkPrime(int n) {
+    if (n == 0 || n == 1) return 0;
+    for (int i = 2; i <= sqrt(n); i++) { // i <= n/2 
+        if (n % i == 0) // not is prime number
+            return 0;
+    }
+    return 1; // is prime number
+}
+
+void primes(int k) {
+    int num, count = 1; // ban dau in ra so 2 de i co buoc nhay la = 2 bo qua truong hop la so chan.
+    int i = 3; // i == 3? --> use to step = 2 .
+    printf("Number of primes : ");
+    scanf("%d", &num); // in ra n nso ngto dau tien. // num = 5
+    printf("2 "); //  in ra so 2 -->  remove all number is even number .
+    while (count < num) {
+        if (checkPrime(i) == 1) {
+            count++; // count = 2  3 4 5
+            printf("%d ", i); // 2 - 3 - 5 - 7 -11
+        }
+        i += 2; // i = 5 i =7 i = 9 (sai) i =11
+    }
+    printf("\n");
+
+}
+
+// i=0, i=1, i=2, i= 3
+
+int fib(int n) { // n=0 , n=1, n=2=> f(1)+f(0)=1, n=3 => f(2)+f(1)=3 int n;
+
+    if (n < 2) {
+        return n;
+    } else {
+        return fib(n - 1) + fib(n - 2);
+    }
+}
+
+void getFIBO(int m) {
+    int checkFibo;
+    printf("Enter m : ");
+    scanf("%d", &m);
+    for (int i = 0; i < m; i++) {
+        printf("%d ", fib(i));
+    }
+    printf("\n");
+   
+}
+
+void digits() {
+    int sum = 0, n, i;
+    printf("Enter an integer:"); //n=123;
+    scanf("%d", &n);
+    if (n < 0) {
+        n *= (-1);
+    }
+    while (n != 0) {
+        i = n % 10; //123%10 = 3;
+        n = n / 10; // 123/10 = 12
+        sum += i; // 3+1+2=6
+    }
+    printf("Sum of it's digits:%d\n", sum); // sum= 6
+}
+
+void function1() {
+    int check, n, m, k;
+    do {
+        printf("1 - The first primes\n");
+        printf("2 - Fibonacci element\n");
+        printf("3 - Sum of digits\n");
+        printf("Choose an option:");
+        scanf("%d", &check);
+        switch (check) {
+            case 1:
+            {
+                primes(k);
+                break;
+            }
+            case 2:
+            {
+                getFIBO(m);
+                break;
+            }
+            case 3:
+            {
+                digits();
+                break;
+            }
+        }
+    } while (1);
+}
+
+int main(int argc, char** argv) {
+    function1();
+    return (EXIT_SUCCESS);
+}
+
