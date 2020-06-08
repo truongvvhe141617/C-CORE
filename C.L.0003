@@ -52,7 +52,6 @@ int intInput(int min, int max) {
     char ch;
     while (1) {
         // This line scan 2 variables integer and character to get out-buffer-flow values or wrong input
-        // fflush(stdin); clear junk value and out-buffer-flow values
         check = scanf("%d%c", &output, &ch);
         fpurge(stdin);
         //fpurge(stdin);
