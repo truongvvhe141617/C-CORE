@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.c
+ * Author: Vuong Van Truong
+ *
+ * Created on May 20, 2020, 4:07 PM
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * 
+ */
+int checkinput(char* Msg, int MIN, int MAX) {
+    int num, check;
+    char ch;
+    do {
+        printf("\n%s", Msg);
+        fpurge(stdin);
+        check = scanf("%d%c", &num, &ch);
+        if (check == 2 && ch == '\n') { // Check 2 characters
+            if (num >= MIN && num <= MAX) break;
+            else printf("Out of the range please enter on %d - %d", MIN, MAX);
+        } else printf("Please enter integer number");
+    } while (1); // true then return num
+    return num;
+}
+
+int main(int argc, char** argv) {
+    int i, num, YN = 1;
+    char ch, a;
+    do {
+        //        int num = checkinput("Please enter a number (1 – 9): ", 1, 9);
+        printf("please enter a number: ");
+        scanf("%d", &num);
+        printf("Multiplication table for 8 number:\n");
+        for (i = 1; i <= 10; i++) {
+            printf("%d * %d = %d\n", num, i, (num * i));
+        }
+        printf("Press any key to continue! ");
+        fpurge(stdin);
+        if ((a == 'n') || (a == 'N')) YN = 0;
+        if ((a == 'y') || (a == 'Y')) YN = 1;
+    } while (YN != 0);
+    return (EXIT_SUCCESS);
+}
+
